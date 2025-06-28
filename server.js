@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"; //cookies
 import jwt from "jsonwebtoken"; //authentication(security)
 import bcrypt from "bcrypt"; //hash pwds
 import session from "express-session";
-const PORT = process.env.BCK_HOST || 1234;
+const PORT = process.env.PORT || 1234;
 const FRONT = process.env.FNT_HOST || "http://localhost:3000";
 import "dotenv/config";
 
@@ -199,5 +199,5 @@ app.get("/logout", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  cconsole.log(`Server running on port ${PORT}`);
 });
