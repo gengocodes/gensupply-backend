@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"; //cookies
 import jwt from "jsonwebtoken"; //authentication(security)
 import bcrypt from "bcrypt"; //hash pwds
 import session from "express-session";
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT || 10000;
 const FRONT = process.env.FNT_HOST || "http://localhost:3000";
 import "dotenv/config";
 
