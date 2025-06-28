@@ -84,7 +84,12 @@ app.post("/updatename", (req, res) => {
     const newToken = jwt.sign(newUser, process.env.JWT_TOKEN, {
       expiresIn: "10m",
     });
-    res.cookie("token", newToken);
+    res.cookie("token", newToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
+
     const tokenExpiry = new Date(Date.now() + 10 * 60 * 1000);
     console.log(
       `🔐 Token refreshed for ${
@@ -118,7 +123,12 @@ app.post("/login", (req, res) => {
             const token = jwt.sign(user, process.env.JWT_TOKEN, {
               expiresIn: "10m",
             });
-            res.cookie("token", token);
+            res.cookie("token", token, {
+              httpOnly: true,
+              secure: true,
+              sameSite: "None",
+            });
+
             return res.json({ Status: "User Authenticated!" });
           } else {
             return res.json({ Error: "Wrong Password!" });
