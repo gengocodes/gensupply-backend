@@ -37,6 +37,7 @@ const db = mysql.createConnection({
 });
 
 app.post("/register", (req, res) => {
+  console.log("Body:", req.body);
   const checkSql = "SELECT * FROM users WHERE email = ?";
   db.query(checkSql, [req.body.email], (err, data) => {
     if (err) return res.json({ Error: "Database error checking email." });
