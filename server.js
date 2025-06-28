@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"; //cookies
 import jwt from "jsonwebtoken"; //authentication(security)
 import bcrypt from "bcrypt"; //hash pwds
 import session from "express-session";
-const PORT = 1234;
+const PORT = process.env.BCK_HOST || 1234;
 import "dotenv/config";
 
 const app = express();
@@ -20,7 +20,7 @@ app.use(
 );
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [process.env.BCK_HOST || "http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
